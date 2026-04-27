@@ -31,22 +31,30 @@ class Tank {
       image(iTankD, x, y);
     }
   }
-        void move(char dir) {
-        if (dir == 'w') {
-          idir = 'w';
-          y = y - speed;
-        } else if (dir == 's') {
-          idir = 's';
-          y = y + speed;
-        } else if (dir == 'a') {
-          idir = 'a';
-          x = x - speed;
-        } else if (dir == 'd') {
-          idir = 'd';
-          x = x + speed;
-        }
-      }
-
-      void fire() {
-      }
+  void move(char dir) {
+    if (dir == 'w') {
+      idir = 'w';
+      y = y - speed;
+    } else if (dir == 's') {
+      idir = 's';
+      y = y + speed;
+    } else if (dir == 'a') {
+      idir = 'a';
+      x = x - speed;
+    } else if (dir == 'd') {
+      idir = 'd';
+      x = x + speed;
+    }
   }
+
+  void fire() {
+  }
+  boolean intersect(Obstacle o) {
+    float distance = dist(x,y,o.x,o.y);
+    if(distance < 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
