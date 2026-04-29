@@ -1,21 +1,19 @@
 class Projectile {
-  // Member Variable
   float x, y, w, h, speed;
   float vx, vy;
   char dir;
 
 
-  // constructor
+  // Constructor
   Projectile(float x, float y, float vx, float vy) {
-    this.x = x;
-    this.y = y;
+    this.x=x;
+    this.y=y;
     this.vx = vx;
-    this.vx = vy;
-    this.w = 10;
-    this.h = 10;
+    this.vy = vy;
+    this.w = 5;
+    this.h = 5;
     speed = 10;
     dir = 'u';
-    
   }
 
   void display() {
@@ -27,16 +25,18 @@ class Projectile {
     x += vx;
     y += vy;
   }
-  
+
+
   boolean intersect(Obstacle o) {
-    float distance = dist(x,y,o.x,o.y);
-    if(distance < 100) {
+    float distance = dist(x, y, o.x, o.y);
+    if (distance < w/2) {
       return true;
     } else {
       return false;
     }
   }
   boolean reachedEdge() {
-  return x<0 || x>width||y<0||y>height;
+
+    return x<0||x>width||y<0||y>height;
   }
 }

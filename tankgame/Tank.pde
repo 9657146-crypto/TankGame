@@ -3,6 +3,7 @@ class Tank {
   float x, y, w, h, speed, health;
   PImage iTankW, iTankA, iTankS, iTankD;
   char idir;
+  int turretCount, laserCount;
 
   // constructor
   Tank() {
